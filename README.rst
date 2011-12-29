@@ -11,6 +11,30 @@ Deployed eine ``README.rst``-Datei in ein Wiki, z.B. Confluence
    :confluence-page: aida_rsttest
 
 
+===========
+Einrichtung
+===========
+::
+
+  $ cp config.php.dist config.php
+  $ emacs config.php
+  .. change user and password
+
+
+===========================
+Meta-Angaben in rST-Dateien
+===========================
+Man kann in den .rst-Dateien Meta-Angaben hinterlegen, damit man die Parameter
+nicht alle auf der Kommandozeile angeben muss.
+
+Beispiel::
+
+  .. meta::
+     :deploy-target: confluence
+     :confluence-host: http://confluence.example.org
+     :confluence-space: IT
+     :confluence-page: rstpagetest
+
 ==========
 Verwendung
 ==========
