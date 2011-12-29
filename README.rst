@@ -6,9 +6,9 @@ Deployed eine ``README.rst``-Datei in ein Wiki, z.B. Confluence
 
 .. meta::
    :deploy-target: confluence
-   :confluence-host: http://docs.aida.de
+   :confluence-host: http://confluence.example.org
    :confluence-space: IT
-   :confluence-page: aida_rsttest
+   :confluence-page: rstpagetest
 
 
 ===========
