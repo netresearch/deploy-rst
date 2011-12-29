@@ -10,7 +10,7 @@ declare(encoding='utf-8');
  * @package  DeployRst
  * @author   Christian Weiske <christian.weiske@netresearch.de>
  * @license  http://www.gnu.org/licenses/agpl.html AGPL v3 or later
- * @link     https://gitorious.nr/php/deploy-rst
+ * @link     https://github.com/netresearch/deploy-rst
  */
 
 spl_autoload_register(
