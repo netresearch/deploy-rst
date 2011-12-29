@@ -24,7 +24,7 @@ Einrichtung
 ===========================
 Meta-Angaben in rST-Dateien
 ===========================
-Man kann in den .rst-Dateien Meta-Angaben hinterlegen, damit man die Parameter
+Man kann in den ``.rst``-Dateien Meta-Angaben hinterlegen, damit man die Parameter
 nicht alle auf der Kommandozeile angeben muss.
 
 Beispiel::
@@ -42,6 +42,10 @@ Verwendung
 
   $ ./deploy-rst.php README.rst
 
+Hilfe::
+
+  $ ./deploy-rst.php --help
+
 
 ==============
 Abhängigkeiten
@@ -49,6 +53,7 @@ Abhängigkeiten
 * rst2confluence__
 * `Confluence Command line interface`__
 * ``System`` von PEAR
+* ``Console_CommandLine`` von PEAR
 
 __ https://github.com/cweiske/rst2confluence
 __ https://studio.plugins.atlassian.com/wiki/display/CSOAP/Confluence+Command+Line+Interface
