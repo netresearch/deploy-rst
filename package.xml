@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package
+ version="2.0"
+ xmlns="http://pear.php.net/dtd/package-2.0"
+ xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+  http://pear.php.net/dtd/tasks-1.0.xsd
+  http://pear.php.net/dtd/package-2.0
+  http://pear.php.net/dtd/package-2.0.xsd"
+>
+ <name>DeployRst</name>
+ <channel>__uri</channel>
+ <summary>Deploy rST documents to a wiki</summary>
+ <description>Deploy a reStructuredText document into a wiki, e.g. confluence</description>
+
+ <lead>
+  <name>Christian Weiske</name>
+  <user>cweiske</user>
+  <email>christian.weiske@netresearch.de</email>
+  <active>yes</active>
+ </lead>
+
+ <date>2011-12-29</date>
+ <time>00:00:00</time>
+
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+
+ <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+
+ <notes>
+- First version
+ </notes>
+
+ <contents>
+   <dir name="/">
+     <file role="script" name="deploy-rst.php" install-as="deploy-rst">
+       <tasks:replace from="@cfg_dir@" to="cfg_dir" type="pear-config" />
+     </file>
+
+     <file role="doc" name="README.rst" />
+     <file role="cfg" name="config.php.dist"/>
+
+     <dir name="src">
+       <dir name="netresearch">
+         <dir name="DeployRst">
+           <file role="php" name="Cli.php"       install-as="netresearch/DeployRst/Cli.php" />
+           <file role="php" name="Driver.php"    install-as="netresearch/DeployRst/Driver.php" />
+           <file role="php" name="Exception.php" install-as="netresearch/DeployRst/Exception.php" />
+           <file role="php" name="Exec.php"      install-as="netresearch/DeployRst/Exec.php" />
+           <file role="php" name="Rst.php"       install-as="netresearch/DeployRst/Rst.php" />
+           <dir name="Driver">
+             <file role="php" name="Confluence.php" install-as="netresearch/DeployRst/Driver/Confluence.php" />
+           </dir>
+         </dir>
+       </dir>
+     </dir>
+   </dir><!-- / -->
+ </contents>
+
+ <dependencies>
+  <required>
+   <php>
+    <min>5.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.9.1</min>
+   </pearinstaller>
+
+   <package>
+     <name>Console_CommandLine</name>
+     <channel>pear.php.net</channel>
+     <min>1.1.3</min>
+   </package>
+   <!-- because of System.php -->
+   <package>
+     <name>PEAR</name>
+     <channel>pear.php.net</channel>
+     <min>1.9.1</min>
+   </package>
+  </required>
+ </dependencies>
+
+ <phprelease />
+
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-12-29</date>
+   <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+   <notes>
+     First Version
+   </notes>
+  </release>
+
+ </changelog>
+</package>

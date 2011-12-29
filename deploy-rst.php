@@ -27,7 +27,11 @@ if (is_dir(__DIR__ . '/src/netresearch/DeployRst')) {
     );
 }
 
-require_once __DIR__ . '/config.php';
+if ('@cfg_dir@' == '@' . 'cfg_dir@') {
+    include_once __DIR__ . '/config.php';
+} else {
+    include_once '@cfg_dir@/config.php';
+}
 $cli = new netresearch\DeployRst\Cli($options);
 $cli->run();
 ?>
