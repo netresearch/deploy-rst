@@ -16,8 +16,8 @@ Einrichtung
 ===========
 ::
 
-  $ cp config.php.dist config.php
-  $ emacs config.php
+  $ cp config.php.dist ~/.config/deploy-rst
+  $ emacs ~/.config/deploy-rst
   .. change user and password
 
 

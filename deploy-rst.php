@@ -28,10 +28,22 @@ if (is_dir(__DIR__ . '/src/netresearch/DeployRst')) {
 }
 
 if ('@cfg_dir@' == '@' . 'cfg_dir@') {
-    include_once __DIR__ . '/config.php';
+    $cfgfile = __DIR__ . '/config.php';
 } else {
-    include_once '@cfg_dir@/config.php';
+    $cfgfile = '@cfg_dir@/config.php';
 }
+
+$sf = new System_Folders();
+$homedir = $sf->getHome();
+if (file_exists($homedir . '/.config/deploy-rst')) {
+    $cfgfile = $homedir . '/.config/deploy-rst';
+}
+
+$options = array();
+if (file_exists($cfgfile)) {
+    include $cfgfile;
+}
+
 $cli = new netresearch\DeployRst\Cli($options);
 $cli->run();
 ?>
