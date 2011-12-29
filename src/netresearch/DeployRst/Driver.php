@@ -5,9 +5,12 @@ class Driver
 {
     protected function loadSetting($name)
     {
-        if (isset($this->options[$name])) {
-            return $this->options[$name];
+        //Console_CommandLine problem, not - allowed in option names
+        $optname = str_replace('-', '_', $name);
+        if (isset($this->options[$optname])) {
+            return $this->options[$optname];
         }
+
         if (isset($this->metas[$name])) {
             return $this->metas[$name];
         }

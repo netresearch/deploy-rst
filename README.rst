@@ -48,6 +48,7 @@ Abhängigkeiten
 ==============
 * rst2confluence__
 * `Confluence Command line interface`__
+* ``System`` von PEAR
 
 __ https://github.com/cweiske/rst2confluence
 __ https://studio.plugins.atlassian.com/wiki/display/CSOAP/Confluence+Command+Line+Interface

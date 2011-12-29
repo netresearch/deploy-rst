@@ -19,17 +19,46 @@ class Cli
             $this->loadMeta();
             $this->runDriver();
         } catch (Exception $e) {
-            echo $e->getMessage() . "\n";
+            file_put_contents('php://stderr', trim($e->getMessage()) . "\n");
             exit($e->getCode());
         }
     }
 
     protected function loadParams()
     {
-        if ($GLOBALS['argc'] <= 1) {
-            throw new Exception('Please pass a file name', 1);
+        $parser = new \Console_CommandLine();
+        $parser->description = 'Deploy reStructuredText documents into a wiki';
+        $parser->version     = '0.1.0';
+        $parser->addArgument('file', array('description' => 'rST file path'));
+
+        $parser->addOption(
+            'driver',
+            array(
+                'long_name'   => '--driver',
+                'optional'    => true,
+                'action'      => 'StoreString',
+                'description' => 'Wiki driver to use',
+            )
+        );
+
+        //No -D options: https://pear.php.net/bugs/bug.php?id=19163
+        //yep, that does not automatically work with new drivers
+        Driver_Confluence::loadHelp($parser);
+
+        try {
+            $result = $parser->parse();
+
+            foreach (array_keys($result->options) as $key) {
+                if ($result->options[$key] === null) {
+                    unset($result->options[$key]);
+                }
+            }
+            $this->options = array_merge($this->options, $result->options);
+        } catch (\Console_CommandLine_Exception $e) {
+            $parser->displayError($e->getMessage());
         }
-        $this->file = $GLOBALS['argv'][1];
+
+        $this->file = $result->args['file'];
         if (!file_exists($this->file)) {
             throw new Exception('File does not exist', 2);
         }
@@ -45,10 +74,18 @@ class Cli
 
     protected function runDriver()
     {
-        $class = '\\netresearch\DeployRst\\Driver_' . ucfirst($this->metas['deploy-target']);
+        if (isset($this->metas['deploy-target'])) {
+            $drname = $this->metas['deploy-target'];
+        } else if (isset($this->options['driver'])) {
+            $drname = $this->options['driver'];
+        } else {
+            throw new Exception('No driver specified', 5);
+        }
+
+        $class = '\\netresearch\DeployRst\\Driver_' . ucfirst($drname);
         if (!class_exists($class)) {
             throw new Exception(
-                'No wiki driver found for target ' . $this->metas['deploy-target']
+                'No wiki driver found: ' . $drname
             );
         }
 

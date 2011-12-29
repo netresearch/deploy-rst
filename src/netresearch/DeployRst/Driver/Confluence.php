@@ -36,6 +36,58 @@ class Driver_Confluence extends Driver
         );
     }
 
+    public static function loadHelp(\Console_CommandLine $parser)
+    {
+        $parser->addOption(
+            'user',
+            array(
+                'long_name' => '--user',
+                'optional' => true,
+                'action' => 'StoreString',
+                'description' => 'Confluence user name'
+            )
+        );
+        $parser->addOption(
+            'password',
+            array(
+                'long_name' => '--password',
+                'optional' => true,
+                'action' => 'StoreString',
+                'description' => 'Confluence user password'
+            )
+        );
+        $parser->addOption(
+            'confluence_host',
+            array(
+                'long_name'   => '--confluence-host',
+                'optional'    => true,
+                'action'      => 'StoreString',
+                'description' => 'Confluence host name (with http://)',
+                'help_name'   => 'host'
+            )
+        );
+        $parser->addOption(
+            'confluence_space',
+            array(
+                'long_name'   => '--confluence-space',
+                'optional'    => true,
+                'action'      => 'StoreString',
+                'description' => 'Confluence space name',
+                'help_name'   => 'space'
+            )
+        );
+        $parser->addOption(
+            'confluence_page',
+            array(
+                'long_name'   => '--confluence-page',
+                'optional'    => true,
+                'action'      => 'StoreString',
+                'description' => 'Confluence page name',
+                'help_name'   => 'page'
+            )
+        );
+    }
+
     public function loadTools()
     {
         require_once 'System.php';
