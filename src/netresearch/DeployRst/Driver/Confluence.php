@@ -142,6 +142,7 @@ class Driver_Confluence extends Driver
      */
     public function loadTools()
     {
+        error_reporting(error_reporting() & ~E_STRICT);
         include_once 'System.php';
         if (!class_exists('System')) {
             throw new Exception(
