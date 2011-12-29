@@ -33,6 +33,8 @@ if ('@cfg_dir@' == '@' . 'cfg_dir@') {
     $cfgfile = '@cfg_dir@/config.php';
 }
 
+//old code in system_folders
+error_reporting(error_reporting() & ~E_STRICT);
 $sf = new System_Folders();
 $homedir = $sf->getHome();
 if (file_exists($homedir . '/.config/deploy-rst')) {
