@@ -1,21 +1,5 @@
 #!/usr/bin/env php
 <?php
-/*
-./confluence.sh --server http://docs.aida.de --user weiske.christian --action getPageSource --space "IT" --title "aida_rsttest" --password "FIXME"
-
-Page source
-Das hier ist über dem rsttest
-
-{html}<!-- BEGIN deploy-content -->{html}
-Dieser Inhalt kommt vom Deploymentscript
-{html}<!-- END deploy-content -->{html}
-
-Das hier ist darunter.
-*/
-   /*
-storePage space, title, content or file
-    */
-
 require_once __DIR__ . '/config.php';
 
 function err($msg)
@@ -66,7 +50,7 @@ if ($retval !== 0) {
 }
 
 //we cannot pipe it, see https://studio.plugins.atlassian.com/browse/CSOAP-122
-$file = tempnam(sys_get_temp_dir(), 'deploy-confluence-');
+$tmpfile = tempnam(sys_get_temp_dir(), 'deploy-confluence-');
 $cmd = sprintf(
     'confluence-cli --server %s --user %s --password %s --action getPageSource --space %s --title %s --file %s --quiet',
     escapeshellarg($cflHost),
@@ -74,10 +58,10 @@ $cmd = sprintf(
     escapeshellarg($cflPass),
     escapeshellarg($cflSpace),
     escapeshellarg($cflTitle),
-    escapeshellarg($file)
+    escapeshellarg($tmpfile)
 );
 list($lastline, $retval) = run($cmd);
-$curDoc = file_get_contents($file);
+$curDoc = file_get_contents($tmpfile);
 unlink($file);
 
 //list($curDoc, $retval) = run($cmd);
