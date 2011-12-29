@@ -1,31 +1,69 @@
 <?php
+declare(encoding='utf-8');
+/**
+ * Part of DeployRst
+ *
+ * PHP Version 5
+ *
+ * @category Tools
+ * @package  DeployRst
+ * @author   Christian Weiske <christian.weiske@netresearch.de>
+ * @license  http://www.gnu.org/licenses/agpl.html AGPL v3 or later
+ * @link     https://gitorious.nr/php/deploy-rst
+ */
 namespace netresearch\DeployRst;
 
+/**
+ * Atlassian Confluence wiki driver.
+ * Stores rST documents in a confluence wiki
+ *
+ * @category Tools
+ * @package  DeployRst
+ * @author   Christian Weiske <christian.weiske@netresearch.de>
+ * @license  http://www.gnu.org/licenses/agpl.html AGPL v3 or later
+ * @link     https://gitorious.nr/php/deploy-rst
+ */
 class Driver_Confluence extends Driver
 {
-    protected $options;
-    protected $file;
-    protected $metas;
-
     protected $cflHost;
     protected $cflUser;
     protected $cflPass;
     protected $cflSpace;
     protected $cflPage;
 
+    /**
+     * Marks the beginning of the automatic deployed rST document
+     *
+     * @var string
+     */
     public $markerBegin = "{html}<!-- BEGIN deploy-content -->{html}\n";
+
+    /**
+     * Marks the end of the automatic deployed rST document
+     *
+     * @var string
+     */
     public $markerEnd   = "{html}<!-- END deploy-content -->{html}\n";
 
-
+    /**
+     * Create a new instance, set some variables, load tools and parameters
+     *
+     * @param string $file    Path to rST file
+     * @param string $metas   rST meta settings
+     * @param string $options CLI options
+     */
     public function __construct($file, $metas, $options)
     {
-        $this->options = $options;
-        $this->file    = $file;
-        $this->metas   = $metas;
+        parent::__construct($file, $metas, $options);
         $this->loadTools();
         $this->loadParameters();
     }
 
+    /**
+     * Run the driver: Deploy the rST file into the wiki
+     *
+     * @return void
+     */
     public function run()
     {
         $this->storePage(
@@ -36,6 +74,13 @@ class Driver_Confluence extends Driver
         );
     }
 
+    /**
+     * Loads confluence-specific options into the command line parser
+     *
+     * @param object $parser Command line parser object
+     *
+     * @return void
+     */
     public static function loadHelp(\Console_CommandLine $parser)
     {
         $parser->addOption(
@@ -88,20 +133,37 @@ class Driver_Confluence extends Driver
         );
     }
 
+    /**
+     * Load the paths of required tools: rst2confluence and confluence-cli
+     *
+     * @return void
+     *
+     * @throws Exception When one of the tools cannot be found
+     */
     public function loadTools()
     {
-        require_once 'System.php';
+        include_once 'System.php';
+        if (!class_exists('System')) {
+            throw new Exception(
+                'Could not find PEAR\'s "System" class', 10
+            );
+        }
 
         $this->cmd['rst2c'] = \System::which('rst2confluence');
         if ($this->cmd['rst2c'] === false) {
-            throw new Exception('rst2confluence not found', 10);
+            throw new Exception('rst2confluence not found', 11);
         }
         $this->cmd['cflcli'] = \System::which('confluence-cli');
         if ($this->cmd['cflcli'] === false) {
-            throw new Exception('confluence-cli not found', 11);
+            throw new Exception('confluence-cli not found', 12);
         }
     }
 
+    /**
+     * Load required parameters into the class variables
+     *
+     * @return void
+     */
     protected function loadParameters()
     {
         $this->cflHost  = $this->loadSetting('confluence-host');
@@ -111,7 +173,11 @@ class Driver_Confluence extends Driver
         $this->cflPass  = $this->loadSetting('password');
     }
 
-
+    /**
+     * Convert the rST file to confluence markup
+     *
+     * @return string Confluence markup
+     */
     public function convertRst()
     {
         list($rcDoc, $retval) = Exec::run(
@@ -124,9 +190,15 @@ class Driver_Confluence extends Driver
         return $rcDoc;
     }
 
+    /**
+     * Load the current wiki page contents from confluence
+     *
+     * @return string Confluence markup
+     */
     public function getCurrentPage()
     {
-        //we cannot pipe it, see https://studio.plugins.atlassian.com/browse/CSOAP-122
+        //we cannot pipe it, see
+        // https://studio.plugins.atlassian.com/browse/CSOAP-122
         $tmpfile = tempnam(sys_get_temp_dir(), 'deploy-confluence-');
         $cmd = sprintf(
             $this->cmd['cflcli']
@@ -157,7 +229,15 @@ class Driver_Confluence extends Driver
         return $curDoc;
     }
 
-
+    /**
+     * Embeds the rST document confluence markup into the existing document
+     * markup.
+     *
+     * @param string $curDoc  Current confluence document
+     * @param string $newCont rST confluence document
+     *
+     * @return string Resulting document
+     */
     public function embedIntoPage($curDoc, $newCont)
     {
         $begin = strpos($curDoc, $this->markerBegin);
@@ -181,9 +261,17 @@ class Driver_Confluence extends Driver
         return $newDoc;
     }
 
+    /**
+     * Store the confluence document in the confluence wiki.
+     *
+     * @param string $newDoc New document in confluence markup
+     *
+     * @return void
+     */
     public function storePage($newDoc)
     {
-        //we cannot pipe because of https://studio.plugins.atlassian.com/browse/CSOAP-121
+        //we cannot pipe because of
+        //  https://studio.plugins.atlassian.com/browse/CSOAP-121
         $tmpfile = tempnam(sys_get_temp_dir(), 'deploy-confluence-');
         file_put_contents($tmpfile, $newDoc);
         $cmd = sprintf(

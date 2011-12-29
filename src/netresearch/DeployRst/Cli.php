@@ -1,17 +1,48 @@
 <?php
+declare(encoding='utf-8');
+/**
+ * Part of DeployRst
+ *
+ * PHP Version 5
+ *
+ * @category Tools
+ * @package  DeployRst
+ * @author   Christian Weiske <christian.weiske@netresearch.de>
+ * @license  http://www.gnu.org/licenses/agpl.html AGPL v3 or later
+ * @link     https://gitorious.nr/php/deploy-rst
+ */
 namespace netresearch\DeployRst;
 
+/**
+ * Command line interface
+ *
+ * @category Tools
+ * @package  DeployRst
+ * @author   Christian Weiske <christian.weiske@netresearch.de>
+ * @license  http://www.gnu.org/licenses/agpl.html AGPL v3 or later
+ * @link     https://gitorious.nr/php/deploy-rst
+ */
 class Cli
 {
     public $file;
     public $metas;
     public $options;
 
+    /**
+     * Set the options from the config file
+     *
+     * @param array $options Array of config options, similar to the cli options
+     */
     public function __construct($options = array())
     {
         $this->options = $options;
     }
 
+    /**
+     * Run the whole deployment process
+     *
+     * @return void
+     */
     public function run()
     {
         try {
@@ -24,6 +55,14 @@ class Cli
         }
     }
 
+    /**
+     * Loads and parses command line parameters.
+     * Also takes care of the --help switch.
+     *
+     * @return void
+     *
+     * @throws Exception When the rST file does not exist
+     */
     protected function loadParams()
     {
         $parser = new \Console_CommandLine();
@@ -64,11 +103,24 @@ class Cli
         }
     }
 
+    /**
+     * Loads meta data from the rST document
+     *
+     * @return void
+     */
     protected function loadMeta()
     {
         $this->metas = Rst::extractMeta($this->file);
     }
 
+    /**
+     * Runs the desired wiki driver, which in turn deploys the page.
+     *
+     * @return void
+     *
+     * @throws Exception When the driver cannot be found, or the driver
+     *                   produces an error itself
+     */
     protected function runDriver()
     {
         if (isset($this->metas['deploy-target'])) {
