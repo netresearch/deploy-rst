@@ -16,7 +16,7 @@ Einrichtung
 ===========
 ::
 
-  $ cp config.php.dist ~/.config/deploy-rst
+  $ cp `pear config-get cfg_dir`/DeployRst/config.php.dist ~/.config/deploy-rst
   $ emacs ~/.config/deploy-rst
   .. change user and password
 
@@ -38,9 +38,14 @@ Beispiel::
 ==========
 Verwendung
 ==========
-::
+Deployment mit Meta-Angaben::
 
   $ ./deploy-rst.php README.rst
+
+Ohne Meta-Angaben::
+
+  $ deploy-rst --driver=confluence --confluence-host=http://confluence.example.org\
+    --confluence-space=IT --confluence-page=rstpagetest README.rst
 
 Hilfe::
 
