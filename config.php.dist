@@ -1,0 +1,9 @@
+<?php
+$cflHost = 'http://FIXME';
+$cflUser = 'FIXME';
+$cflPass = 'FIXME';
+$cflSpace = 'FIXME';
+$cflTitle = 'FIXME';
+$markerBegin = "{html}<!-- BEGIN deploy-content -->{html}\n";
+$markerEnd   = "{html}<!-- END deploy-content -->{html}\n";
+?>
