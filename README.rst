@@ -1,8 +1,8 @@
-****************
-deploy-aida-docs
-****************
+**********
+deploy-rst
+**********
 
-Deployed eine ``README.rst``-Datei auf docs.aida.de
+Deployed eine ``README.rst``-Datei in ein Wiki, z.B. Confluence
 
 .. meta::
    :deploy-target: confluence
@@ -16,7 +16,7 @@ Verwendung
 ==========
 ::
 
-  $ ./deploy-aida-docs.php README.rst
+  $ ./deploy-rst.php README.rst
 
 
 ==============
