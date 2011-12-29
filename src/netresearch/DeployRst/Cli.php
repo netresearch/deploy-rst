@@ -67,9 +67,6 @@ class Cli
     protected function loadMeta()
     {
         $this->metas = Rst::extractMeta($this->file);
-        if (!isset($this->metas['deploy-target'])) {
-            throw new Exception('No deploy-target meta directive found', 3);
-        }
     }
 
     protected function runDriver()
@@ -79,7 +76,11 @@ class Cli
         } else if (isset($this->options['driver'])) {
             $drname = $this->options['driver'];
         } else {
-            throw new Exception('No driver specified', 5);
+            throw new Exception(
+                'No driver specified.' . "\n"
+                . 'Use a deploy-target meta directive or --driver cli option',
+                5
+            );
         }
 
         $class = '\\netresearch\DeployRst\\Driver_' . ucfirst($drname);
