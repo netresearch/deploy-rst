@@ -11,6 +11,14 @@ Deployed eine ``README.rst``-Datei in ein Wiki, z.B. Confluence
    :confluence-page: rstpagetest
 
 
+============
+Installation
+============
+::
+
+  $ pear channel-discover pear.nrdev.de
+  $ pear install nr/deployrst-alpha
+
 ===========
 Einrichtung
 ===========
