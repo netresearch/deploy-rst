@@ -10,7 +10,7 @@
   http://pear.php.net/dtd/package-2.0.xsd"
 >
  <name>DeployRst</name>
- <channel>__uri</channel>
+ <channel>pear.nrdev.de</channel>
  <summary>Deploy rST documents to a wiki</summary>
  <description>Deploy a reStructuredText document into a wiki, e.g. confluence</description>
 
@@ -21,12 +21,12 @@
   <active>yes</active>
  </lead>
 
- <date>2011-12-29</date>
+ <date>2012-07-13</date>
  <time>00:00:00</time>
 
  <version>
-  <release>0.1.0</release>
-  <api>0.1.0</api>
+  <release>0.2.0</release>
+  <api>0.2.0</api>
  </version>
 
  <stability>
@@ -37,7 +37,7 @@
  <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
 
  <notes>
-- First version
+- Available on channel pear.nrdev.de
  </notes>
 
  <contents>
@@ -97,6 +97,24 @@
  <phprelease />
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.2.0</release>
+    <api>0.2.0</api>
+   </version>
+
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-07-13</date>
+   <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+   <notes>
+- Available on channel pear.nrdev.de
+   </notes>
+  </release>
+
   <release>
    <version>
     <release>0.1.0</release>
