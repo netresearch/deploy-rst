@@ -21,11 +21,11 @@
   <active>yes</active>
  </lead>
 
- <date>2012-07-13</date>
+ <date>2012-12-21</date>
  <time>00:00:00</time>
 
  <version>
-  <release>0.2.0</release>
+  <release>0.2.1</release>
   <api>0.2.0</api>
  </version>
 
@@ -37,12 +37,12 @@
  <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
 
  <notes>
-- Available on channel pear.nrdev.de
+- Make it pyrus-installable
  </notes>
 
  <contents>
    <dir name="/">
-     <file role="script" name="deploy-rst.php" install-as="deploy-rst">
+     <file role="script" name="deploy-rst.php">
        <tasks:replace from="@cfg_dir@" to="cfg_dir" type="pear-config" />
      </file>
 
@@ -52,13 +52,13 @@
      <dir name="src">
        <dir name="netresearch">
          <dir name="DeployRst">
-           <file role="php" name="Cli.php"       install-as="netresearch/DeployRst/Cli.php" />
-           <file role="php" name="Driver.php"    install-as="netresearch/DeployRst/Driver.php" />
-           <file role="php" name="Exception.php" install-as="netresearch/DeployRst/Exception.php" />
-           <file role="php" name="Exec.php"      install-as="netresearch/DeployRst/Exec.php" />
-           <file role="php" name="Rst.php"       install-as="netresearch/DeployRst/Rst.php" />
+           <file role="php" name="Cli.php" />
+           <file role="php" name="Driver.php" />
+           <file role="php" name="Exception.php" />
+           <file role="php" name="Exec.php" />
+           <file role="php" name="Rst.php" />
            <dir name="Driver">
-             <file role="php" name="Confluence.php" install-as="netresearch/DeployRst/Driver/Confluence.php" />
+             <file role="php" name="Confluence.php" />
            </dir>
          </dir>
        </dir>
@@ -94,9 +94,44 @@
   </required>
  </dependencies>
 
- <phprelease />
+ <phprelease>
+  <filelist>
+   <install name="deploy-rst.php" as="deploy-rst"/>
+
+   <install name="src/netresearch/DeployRst/Cli.php"
+            as="netresearch/DeployRst/Cli.php" />
+   <install name="src/netresearch/DeployRst/Driver.php"
+            as="netresearch/DeployRst/Driver.php" />
+   <install name="src/netresearch/DeployRst/Exception.php"
+            as="netresearch/DeployRst/Exception.php" />
+   <install name="src/netresearch/DeployRst/Exec.php"
+            as="netresearch/DeployRst/Exec.php" />
+   <install name="src/netresearch/DeployRst/Rst.php"
+            as="netresearch/DeployRst/Rst.php" />
+
+   <install name="src/netresearch/DeployRst/Driver/Confluence.php"
+            as="netresearch/DeployRst/Driver/Confluence.php" />
+  </filelist>
+ </phprelease>
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.2.1</release>
+    <api>0.2.0</api>
+   </version>
+
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-12-21</date>
+   <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+   <notes>
+- Make it pyrus-installable
+   </notes>
+  </release>
 
   <release>
    <version>
