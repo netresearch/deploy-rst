@@ -21,12 +21,12 @@
   <active>yes</active>
  </lead>
 
- <date>2012-12-21</date>
+ <date>2012-12-27</date>
  <time>00:00:00</time>
 
  <version>
-  <release>0.2.1</release>
-  <api>0.2.0</api>
+  <release>0.3.0</release>
+  <api>0.3.0</api>
  </version>
 
  <stability>
@@ -37,7 +37,7 @@
  <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
 
  <notes>
-- Make it pyrus-installable
+- Add "filter" option
  </notes>
 
  <contents>
@@ -59,6 +59,12 @@
            <file role="php" name="Rst.php" />
            <dir name="Driver">
              <file role="php" name="Confluence.php" />
+             <dir name="Confluence">
+               <file role="php" name="Filter.php" />
+               <dir name="Filter">
+                 <file role="php" name="Aida.php" />
+               </dir>
+             </dir>
            </dir>
          </dir>
        </dir>
@@ -111,10 +117,30 @@
 
    <install name="src/netresearch/DeployRst/Driver/Confluence.php"
             as="netresearch/DeployRst/Driver/Confluence.php" />
+   <install name="src/netresearch/DeployRst/Driver/Confluence/Filter.php"
+            as="netresearch/DeployRst/Driver/Confluence/Filter.php" />
+   <install name="src/netresearch/DeployRst/Driver/Confluence/Filter/Aida.php"
+            as="netresearch/DeployRst/Driver/Confluence/Filter/Aida.php" />
   </filelist>
  </phprelease>
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.3.0</release>
+    <api>0.3.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2012-12-27</date>
+   <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+   <notes>
+Add "filter" option and Aida confluence filter
+   </notes>
+  </release>
 
   <release>
    <version>
