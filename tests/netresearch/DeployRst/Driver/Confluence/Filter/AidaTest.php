@@ -83,7 +83,7 @@ CFL;
             <<<CFL
 Foo
 
-h1. Anhänge
+h1. Attachments
 {attachments}
 
 CFL
