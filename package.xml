@@ -121,7 +121,6 @@
     <release>0.2.1</release>
     <api>0.2.0</api>
    </version>
-
    <stability>
     <release>alpha</release>
     <api>alpha</api>
@@ -138,7 +137,6 @@
     <release>0.2.0</release>
     <api>0.2.0</api>
    </version>
-
    <stability>
     <release>alpha</release>
     <api>alpha</api>
@@ -155,7 +153,6 @@
     <release>0.1.0</release>
     <api>0.1.0</api>
    </version>
-
    <stability>
     <release>alpha</release>
     <api>alpha</api>
