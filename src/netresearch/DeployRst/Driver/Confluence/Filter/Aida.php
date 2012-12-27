@@ -77,7 +77,7 @@ class Driver_Confluence_Filter_Aida implements Driver_Confluence_Filter
     {
         $this->doc .= <<<CFL
 
-h1. Attachments
+h2. Attachments
 {attachments}
 
 CFL;
