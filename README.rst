@@ -2,7 +2,7 @@
 deploy-rst
 **********
 
-Deployed eine ``README.rst``-Datei in ein Wiki, z.B. Confluence
+Deploys a ``README.rst`` file into a wiki, e.g. Confluence
 
 .. meta::
    :deploy-target: confluence
@@ -19,9 +19,9 @@ Installation
   $ pear channel-discover pear.nrdev.de
   $ pear install nr/deployrst-alpha
 
-===========
-Einrichtung
-===========
+=====
+Setup
+=====
 ::
 
   $ cp `pear config-get cfg_dir`/DeployRst/config.php.dist ~/.config/deploy-rst
@@ -29,13 +29,13 @@ Einrichtung
   .. change user and password
 
 
-===========================
-Meta-Angaben in rST-Dateien
-===========================
-Man kann in den ``.rst``-Dateien Meta-Angaben hinterlegen, damit man die Parameter
-nicht alle auf der Kommandozeile angeben muss.
+======================
+Meta data in rST files
+======================
+It is possible to embed wiki target meta data in the ``.rst`` files directly,
+so that you don't have to pass all parameters via command line.
 
-Beispiel::
+Example::
 
   .. meta::
      :deploy-target: confluence
@@ -43,30 +43,30 @@ Beispiel::
      :confluence-space: IT
      :confluence-page: rstpagetest
 
-==========
-Verwendung
-==========
-Deployment mit Meta-Angaben::
+=====
+Usage
+=====
+Deployment with meta data in the ``.rst`` file::
 
   $ ./deploy-rst.php README.rst
 
-Ohne Meta-Angaben::
+Without embedded meta data::
 
   $ deploy-rst --driver=confluence --confluence-host=http://confluence.example.org\
     --confluence-space=IT --confluence-page=rstpagetest README.rst
 
-Hilfe::
+Help::
 
   $ ./deploy-rst.php --help
 
 
-==============
-Abhängigkeiten
-==============
+============
+Dependencies
+============
 * rst2confluence__
 * `Confluence Command line interface`__
-* ``System`` von PEAR
-* ``Console_CommandLine`` von PEAR
+* ``System`` from PEAR
+* ``Console_CommandLine`` from PEAR
 
 __ https://github.com/cweiske/rst2confluence
-__ https://studio.plugins.atlassian.com/wiki/display/CSOAP/Confluence+Command+Line+Interface
+__ https://bobswift.atlassian.net/wiki/display/CSOAP/Confluence+Command+Line+Interface
