@@ -1,0 +1,10 @@
+<phpunit colors="true" strict="true">
+  <php>
+    <includePath>../src</includePath>
+  </php>
+  <filter>
+    <whitelist>
+      <directory suffix=".php">../src/</directory>
+    </whitelist>
+  </filter>
+</phpunit>
