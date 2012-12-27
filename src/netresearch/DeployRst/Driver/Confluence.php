@@ -30,6 +30,7 @@ class Driver_Confluence extends Driver
     protected $cflPass;
     protected $cflSpace;
     protected $cflPage;
+    protected $filterName;
 
     /**
      * Marks the beginning of the automatic deployed rST document
@@ -99,6 +100,15 @@ class Driver_Confluence extends Driver
                 'optional' => true,
                 'action' => 'StoreString',
                 'description' => 'Confluence user password'
+            )
+        );
+        $parser->addOption(
+            'filter',
+            array(
+                'long_name' => '--filter',
+                'optional' => true,
+                'action' => 'StoreString',
+                'description' => 'rST filter name (e.g. "aida")'
             )
         );
         $parser->addOption(
@@ -172,6 +182,7 @@ class Driver_Confluence extends Driver
         $this->cflPage  = $this->loadSetting('confluence-page');
         $this->cflUser  = $this->loadSetting('user');
         $this->cflPass  = $this->loadSetting('password');
+        $this->filter   = $this->loadSetting('filter');
     }
 
     /**
@@ -188,7 +199,32 @@ class Driver_Confluence extends Driver
             throw new Exception('Error converting rst to confluence format', 20);
         }
 
-        return $rcDoc;
+        return $this->filter($rcDoc);
+    }
+
+    /**
+     * Run a filter on the document confluence markup.
+     *
+     * @param string $doc Confluence markup
+     *
+     * @return string Filtered confluence markup
+     */
+    public function filter($doc)
+    {
+        if (!$this->filter) {
+            return $doc;
+        }
+
+        $filterClass = 'netresearch\DeployRst\Driver_Confluence_Filter_'
+            . ucfirst($this->filter);
+        if (!class_exists($filterClass)) {
+            throw new Exception(
+                'Confluence filter class does not exist: ' . $filterClass, 21
+            );
+        }
+
+        $filter = new $filterClass();
+        return $filter->filter($doc);
     }
 
     /**
