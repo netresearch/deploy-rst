@@ -63,13 +63,14 @@ class Driver
      * Read a single required setting and returns its value.
      * Reads it from the meta data as well as from the CLI options.
      *
-     * @param string $name Name of the setting.
+     * @param string  $name     Name of the setting
+     * @param boolean $required If the setting is required or not
      *
      * @return string Setting value
      *
      * @throws Exception When the setting is missing
      */
-    protected function loadSetting($name)
+    protected function loadSetting($name, $required = true)
     {
         //Console_CommandLine problem, not - allowed in option names
         $optname = str_replace('-', '_', $name);
@@ -79,6 +80,10 @@ class Driver
 
         if (isset($this->metas[$name])) {
             return $this->metas[$name];
+        }
+
+        if (!$required) {
+            return;
         }
 
         throw new Exception(

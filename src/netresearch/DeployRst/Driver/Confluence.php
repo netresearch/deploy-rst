@@ -31,6 +31,7 @@ class Driver_Confluence extends Driver
     protected $cflSpace;
     protected $cflPage;
     protected $filterName;
+    protected $noDeploy = false;
 
     /**
      * Marks the beginning of the automatic deployed rST document
@@ -67,6 +68,11 @@ class Driver_Confluence extends Driver
      */
     public function run()
     {
+        if ($this->noDeploy) {
+            echo $this->convertRst();
+            return;
+        }
+
         $this->storePage(
             $this->embedIntoPage(
                 $this->getCurrentPage(),
@@ -100,6 +106,15 @@ class Driver_Confluence extends Driver
                 'optional' => true,
                 'action' => 'StoreString',
                 'description' => 'Confluence user password'
+            )
+        );
+        $parser->addOption(
+            'no_deploy',
+            array(
+                'long_name' => '--no-deploy',
+                'optional' => true,
+                'action' => 'StoreTrue',
+                'description' => 'Do not deploy, echo output only'
             )
         );
         $parser->addOption(
@@ -182,7 +197,8 @@ class Driver_Confluence extends Driver
         $this->cflPage  = $this->loadSetting('confluence-page');
         $this->cflUser  = $this->loadSetting('user');
         $this->cflPass  = $this->loadSetting('password');
-        $this->filter   = $this->loadSetting('filter');
+        $this->filter   = $this->loadSetting('filter', false);
+        $this->noDeploy = $this->loadSetting('no_deploy', false);
     }
 
     /**
