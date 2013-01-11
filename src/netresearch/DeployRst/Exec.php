@@ -45,6 +45,27 @@ class Exec
         return array($output, $retval);
     }
 
+
+    public static function runPipe($cmd, $stdin)
+    {
+        $pipeSpec = array(
+            0 => array('pipe', 'r'),
+            1 => array('pipe', 'w'),
+            //2 => array('pipe', 'w')
+        );
+        $proc = proc_open($cmd, $pipeSpec, $pipes);
+
+        fwrite($pipes[0], $stdin);
+        fclose($pipes[0]);
+
+        $output = stream_get_contents($pipes[1]);
+        fclose($pipes[1]);
+
+        $retval = proc_close($proc);
+
+        return array($output, $retval);
+    }
+
 }
 
 ?>

@@ -27,13 +27,26 @@ class Driver_Confluence_Filter_Aida implements Driver_Confluence_Filter
     public $doc;
 
     /**
+     * Modify rST markup.
+     *
+     * @param string $doc reStructuredText markup
+     *
+     * @return string Modified reStructuredText markup
+     */
+    public function preFilter($doc)
+    {
+        //remove headline
+        return preg_replace('#^\*\*+\n[^\n]+\n\*\*+\n#', '', $doc);
+    }
+
+    /**
      * Modify confluence markup.
      *
      * @param string $doc Confluence markup
      *
      * @return string Modified confluence markup
      */
-    public function filter($doc)
+    public function postFilter($doc)
     {
         $this->doc = $doc;
 

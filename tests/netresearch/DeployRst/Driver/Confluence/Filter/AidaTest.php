@@ -10,6 +10,49 @@ class Driver_Confluence_Filter_AidaTest extends \PHPUnit_Framework_TestCase
         $this->filter = new Driver_Confluence_Filter_Aida();
     }
 
+    public function testPreFilterRemoveHeadings()
+    {
+        $this->assertEquals(
+            <<<RST
+
+Foo bar
+RST
+            ,
+            $this->filter->preFilter(
+                <<<RST
+*************
+Extensionname
+*************
+
+Foo bar
+RST
+            )
+        );
+    }
+
+    public function testPreFilterRemoveHeadingsNoHeading()
+    {
+        $this->assertEquals(
+            <<<RST
+Hi there.
+*************
+Extensionname
+*************
+
+RST
+            ,
+            $this->filter->preFilter(
+                <<<RST
+Hi there.
+*************
+Extensionname
+*************
+
+RST
+            )
+        );
+    }
+
     public function testAddNumberedHeadings()
     {
         $this->filter->doc = <<<CFL

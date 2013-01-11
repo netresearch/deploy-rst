@@ -33,6 +33,8 @@ class Driver_Confluence extends Driver
     protected $filterName;
     protected $noDeploy = false;
 
+    protected $filterObj;
+
     /**
      * Marks the beginning of the automatic deployed rST document
      *
@@ -208,27 +210,49 @@ class Driver_Confluence extends Driver
      */
     public function convertRst()
     {
-        list($rcDoc, $retval) = Exec::run(
-            $this->cmd['rst2c'] . ' ' . escapeshellarg($this->file)
+        $doc = file_get_contents($this->file);
+
+        $doc = $this->runFilter('preFilter', $doc);
+
+        list($rcDoc, $retval) = Exec::runPipe(
+            $this->cmd['rst2c'], $doc
         );
         if ($retval !== 0) {
-            throw new Exception('Error converting rst to confluence format', 20);
+            throw new Exception(
+                'Error converting rst to confluence format', 20
+            );
         }
 
-        return $this->filter($rcDoc);
+        return $this->runFilter('postFilter', $rcDoc);
     }
 
     /**
      * Run a filter on the document confluence markup.
      *
-     * @param string $doc Confluence markup
+     * @param string $method Filter method to execute
+     * @param string $doc    Confluence markup
      *
      * @return string Filtered confluence markup
      */
-    public function filter($doc)
+    public function runFilter($method, $doc)
     {
         if (!$this->filter) {
             return $doc;
+        }
+
+        $filter = $this->loadFilter();
+        return $filter->$method($doc);
+    }
+
+    /**
+     * Load filter object and return it
+     *
+     * @return Driver_Confluence_Filter
+     */
+    protected function loadFilter()
+    {
+        if ($this->filterObj !== null) {
+            return $this->filterObj;
         }
 
         $filterClass = 'netresearch\DeployRst\Driver_Confluence_Filter_'
@@ -239,8 +263,8 @@ class Driver_Confluence extends Driver
             );
         }
 
-        $filter = new $filterClass();
-        return $filter->filter($doc);
+        $this->filterObj = new $filterClass();
+        return $this->filterObj;
     }
 
     /**

@@ -25,13 +25,22 @@ namespace netresearch\DeployRst;
 interface Driver_Confluence_Filter
 {
     /**
+     * Modify rST markup.
+     *
+     * @param string $doc reStructuredText markup
+     *
+     * @return string Modified reStructuredText markup
+     */
+    public function preFilter($doc);
+
+    /**
      * Modify confluence markup.
      *
      * @param string $doc Confluence markup
      *
      * @return string Modified confluence markup
      */
-    public function filter($doc);
+    public function postFilter($doc);
 }
 
 ?>
