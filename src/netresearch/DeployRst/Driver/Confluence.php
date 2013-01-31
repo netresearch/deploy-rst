@@ -303,6 +303,10 @@ class Driver_Confluence extends Driver
             throw new Exception('Document is empty. This might be a bug', 22);
         }
 
+        if (substr($curDoc, -1) != "\n") {
+            $curDoc .= "\n";
+        }
+
         return $curDoc;
     }
 
