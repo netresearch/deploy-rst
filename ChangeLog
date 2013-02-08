@@ -1,3 +1,8 @@
+2013-02-08  Christian Weiske  <christian.weiske@netresearch.de>
+
+	* NRFE-305: fix attachment heading level
+	* Version 0.3.2
+
 2013-01-11  Christian Weiske  <christian.weiske@netresearch.de>
 
 	* NRFE-299: Remove top level headings in aida confluence filter

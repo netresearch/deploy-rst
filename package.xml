@@ -21,11 +21,11 @@
   <active>yes</active>
  </lead>
 
- <date>2013-01-11</date>
+ <date>2013-02-08</date>
  <time>00:00:00</time>
 
  <version>
-  <release>0.3.1</release>
+  <release>0.3.2</release>
   <api>0.3.1</api>
  </version>
 
@@ -37,7 +37,7 @@
  <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
 
  <notes>
-  - NRFE-299: Remove top level headings in aida confluence filter
+  - NRFE-305: fix attachment heading level
  </notes>
 
  <contents>
@@ -125,6 +125,22 @@
  </phprelease>
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.3.2</release>
+    <api>0.3.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2013-02-08</date>
+   <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+   <notes>
+     - NRFE-305: fix attachment heading level
+   </notes>
+  </release>
 
   <release>
    <version>
