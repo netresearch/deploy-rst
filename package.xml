@@ -52,7 +52,9 @@
      <dir name="src">
        <dir name="netresearch">
          <dir name="DeployRst">
-           <file role="php" name="Cli.php" />
+           <file role="php" name="Cli.php">
+             <tasks:replace from="@version@" to="version" type="package-info" />
+           </file>
            <file role="php" name="Driver.php" />
            <file role="php" name="Exception.php" />
            <file role="php" name="Exec.php" />

@@ -67,7 +67,7 @@ class Cli
     {
         $parser = new \Console_CommandLine();
         $parser->description = 'Deploy reStructuredText documents into a wiki';
-        $parser->version     = '0.1.0';
+        $parser->version     = '@version@';
         $parser->addArgument('file', array('description' => 'rST file path'));
 
         $parser->addOption(
