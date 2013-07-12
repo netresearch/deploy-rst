@@ -126,7 +126,7 @@ CFL;
             <<<CFL
 Foo
 
-h2. Attachments
+h1. Attachments
 {attachments}
 
 CFL
