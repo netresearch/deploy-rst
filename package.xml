@@ -38,6 +38,7 @@
 
  <notes>
   - NRFE-322: Fix images paths in gallery tags
+  - Make version in "deploy-rst --version" dynamic
  </notes>
 
  <contents>
@@ -141,6 +142,7 @@
    <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
    <notes>
     - NRFE-322: Fix images paths in gallery tags
+    - Make version in "deploy-rst --version" dynamic
    </notes>
   </release>
 
