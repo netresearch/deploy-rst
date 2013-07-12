@@ -93,11 +93,13 @@ CFL
     {
         $this->filter->doc = <<<CFL
 {gallery:include=doc/fe.png,doc/b.jpg,doc/foo/c.png}
+{gallery:include=doc/gsa-treffer-0.jpg,doc/gsa-treffer-1.jpg,doc/gsa-treffer-2.jpg,doc/gsa-treffer-3.jpg}
 CFL;
         $this->filter->fixImages();
         $this->assertEquals(
             <<<CFL
 {gallery:include=fe.png,b.jpg,foo-c.png}
+{gallery:include=gsa-treffer-0.jpg,gsa-treffer-1.jpg,gsa-treffer-2.jpg,gsa-treffer-3.jpg}
 CFL
             ,
             $this->filter->doc

@@ -76,7 +76,7 @@ class Driver_Confluence_Filter_Aida implements Driver_Confluence_Filter
             $this->doc
         );
         $this->doc = preg_replace_callback(
-            '#^{gallery:include=(.+)}$#',
+            '#^{gallery:include=(.+)}$#m',
             function ($parts) {
                 return str_replace(
                     array(',doc/', '=doc/', '/'),
