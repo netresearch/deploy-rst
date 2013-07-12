@@ -1,3 +1,8 @@
+2013-07-12  Christian Weiske  <christian.weiske@netresearch.de>
+
+	* NRFE-322: Fix images paths in gallery tags
+	* Version 0.3.3
+
 2013-02-08  Christian Weiske  <christian.weiske@netresearch.de>
 
 	* NRFE-305: fix attachment heading level

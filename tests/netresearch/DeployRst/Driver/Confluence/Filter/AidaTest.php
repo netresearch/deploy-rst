@@ -89,6 +89,21 @@ CFL
         );
     }
 
+    public function testFixImagesGallery()
+    {
+        $this->filter->doc = <<<CFL
+{gallery:include=doc/fe.png,doc/b.jpg,doc/foo/c.png}
+CFL;
+        $this->filter->fixImages();
+        $this->assertEquals(
+            <<<CFL
+{gallery:include=fe.png,b.jpg,foo-c.png}
+CFL
+            ,
+            $this->filter->doc
+        );
+    }
+
 
     public function testFixToc()
     {

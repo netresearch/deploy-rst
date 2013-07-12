@@ -75,6 +75,17 @@ class Driver_Confluence_Filter_Aida implements Driver_Confluence_Filter
             },
             $this->doc
         );
+        $this->doc = preg_replace_callback(
+            '#^{gallery:include=(.+)}$#',
+            function ($parts) {
+                return str_replace(
+                    array(',doc/', '=doc/', '/'),
+                    array(',', '=', '-'),
+                    $parts[0]
+                );
+            },
+            $this->doc
+        );
     }
 
     public function fixToc()
