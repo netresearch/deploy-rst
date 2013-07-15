@@ -68,5 +68,5 @@ Dependencies
 * ``System`` from PEAR
 * ``Console_CommandLine`` from PEAR
 
-__ https://github.com/cweiske/rst2confluence
+__ https://github.com/netresearch/rst2confluence
 __ https://bobswift.atlassian.net/wiki/display/CSOAP/Confluence+Command+Line+Interface
