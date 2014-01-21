@@ -53,14 +53,8 @@ class Driver_Confluence_Filter_Aida implements Driver_Confluence_Filter
         $this->showAttachments();
         $this->fixToc();
         $this->fixImages();
-        $this->addNumberedHeadings();
 
         return $this->doc;
-    }
-
-    public function addNumberedHeadings()
-    {
-        $this->doc = "{numberedheadings}\n" . $this->doc . "{numberedheadings}\n";
     }
 
     public function fixImages()
