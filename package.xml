@@ -21,12 +21,12 @@
   <active>yes</active>
  </lead>
 
- <date>2014-01-21</date>
+ <date>2014-02-14</date>
  <time>00:00:00</time>
 
  <version>
-  <release>0.4.0</release>
-  <api>0.4.0</api>
+  <release>0.5.0</release>
+  <api>0.5.0</api>
  </version>
 
  <stability>
@@ -37,7 +37,9 @@
  <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
 
  <notes>
-   NRFE-347: remove numberedHeadings macro since Confluence 5.1 does not support it anymore
+NRFE-361: Overwrite full page instead of using begin/end markers.
+This is necessary for Confluence 5, since that does not support exporting
+wiki markup anymore.
  </notes>
 
  <contents>
@@ -127,6 +129,24 @@
  </phprelease>
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.5.0</release>
+    <api>0.5.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2014-02-14</date>
+   <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+   <notes>
+     NRFE-361: Overwrite full page instead of using begin/end markers.
+     This is necessary for Confluence 5, since that does not support exporting
+     wiki markup anymore.
+   </notes>
+  </release>
 
   <release>
    <version>

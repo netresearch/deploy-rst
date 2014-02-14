@@ -35,19 +35,7 @@ class Driver_Confluence extends Driver
 
     protected $filterObj;
 
-    /**
-     * Marks the beginning of the automatic deployed rST document
-     *
-     * @var string
-     */
-    public $markerBegin = "{html}<!-- BEGIN deploy-content -->{html}\n";
 
-    /**
-     * Marks the end of the automatic deployed rST document
-     *
-     * @var string
-     */
-    public $markerEnd   = "{html}<!-- END deploy-content -->{html}\n";
 
     /**
      * Create a new instance, set some variables, load tools and parameters
@@ -76,10 +64,7 @@ class Driver_Confluence extends Driver
         }
 
         $this->storePage(
-            $this->embedIntoPage(
-                $this->getCurrentPage(),
-                $this->convertRst()
-            )
+            $this->convertRst()
         );
     }
 
@@ -265,81 +250,6 @@ class Driver_Confluence extends Driver
 
         $this->filterObj = new $filterClass();
         return $this->filterObj;
-    }
-
-    /**
-     * Load the current wiki page contents from confluence
-     *
-     * @return string Confluence markup
-     */
-    public function getCurrentPage()
-    {
-        //we cannot pipe it, see
-        // https://studio.plugins.atlassian.com/browse/CSOAP-122
-        $tmpfile = tempnam(sys_get_temp_dir(), 'deploy-confluence-');
-        $cmd = sprintf(
-            $this->cmd['cflcli']
-            . ' --server %s --user %s --password %s'
-            . ' --action getPageSource --space %s --title %s --file %s --quiet',
-            escapeshellarg($this->cflHost),
-            escapeshellarg($this->cflUser),
-            escapeshellarg($this->cflPass),
-            escapeshellarg($this->cflSpace),
-            escapeshellarg($this->cflPage),
-            escapeshellarg($tmpfile)
-        );
-        list($lastline, $retval) = Exec::run($cmd);
-        $curDoc = file_get_contents($tmpfile);
-        unlink($tmpfile);
-
-        //list($curDoc, $retval) = run($cmd);
-        if ($retval !== 0) {
-            throw new Exception(
-                'Error fetching confluence document source' . "\n" . $lastline,
-                21
-            );
-        }
-        if (strlen($curDoc) == 0) {
-            throw new Exception('Document is empty. This might be a bug', 22);
-        }
-
-        if (substr($curDoc, -1) != "\n") {
-            $curDoc .= "\n";
-        }
-
-        return $curDoc;
-    }
-
-    /**
-     * Embeds the rST document confluence markup into the existing document
-     * markup.
-     *
-     * @param string $curDoc  Current confluence document
-     * @param string $newCont rST confluence document
-     *
-     * @return string Resulting document
-     */
-    public function embedIntoPage($curDoc, $newCont)
-    {
-        $begin = strpos($curDoc, $this->markerBegin);
-        $end   = strpos($curDoc, $this->markerEnd);
-
-        if ($begin === false && $end === false) {
-            //add it to the end
-            $newDoc = $curDoc . "\n\n"
-                . $this->markerBegin . $newCont . $this->markerEnd;
-        } else if ($begin  === false || $end === false) {
-            throw new Exception('Begin or end marker not found', 23);
-        } else if ($end < $begin) {
-            throw new Exception('Begin marker after end marker', 24);
-        } else {
-            //replace it
-            $newDoc = substr($curDoc, 0, $begin)
-                . $this->markerBegin . $newCont . $this->markerEnd
-                . substr($curDoc, $end + strlen($this->markerEnd));
-        }
-
-        return $newDoc;
     }
 
     /**

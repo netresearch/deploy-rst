@@ -1,3 +1,10 @@
+2014-02-14  Christian Weiske  <christian.weiske@netresearch.de>
+
+	* NRFE-361: Overwrite full page instead of using begin/end markers
+	            This is necessary for Confluence 5, since that does
+	            not support exporting wiki markup anymore.
+	* Version 0.5.0
+
 2014-01-21  Christian Weiske  <christian.weiske@netresearch.de>
 
 	* NRFE-347: remove numberedHeadings macro since Confluence 5.1
