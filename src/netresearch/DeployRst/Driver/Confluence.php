@@ -200,7 +200,7 @@ class Driver_Confluence extends Driver
         $doc = $this->runFilter('preFilter', $doc);
 
         list($rcDoc, $retval) = Exec::runPipe(
-            $this->cmd['rst2c'], $doc
+            $this->cmd['rst2c'] . ' --excerpt', $doc
         );
         if ($retval !== 0) {
             throw new Exception(
