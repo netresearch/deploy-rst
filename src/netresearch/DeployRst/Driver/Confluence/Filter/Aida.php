@@ -36,7 +36,10 @@ class Driver_Confluence_Filter_Aida implements Driver_Confluence_Filter
     public function preFilter($doc)
     {
         //remove headline
-        return preg_replace('#^\*\*+\n[^\n]+\n\*\*+\n#', '', $doc);
+        $doc = preg_replace('#^\*\*+\n[^\n]+\n\*\*+\n#', '', $doc);
+        $this->doc = $doc;
+        $this->convertSphinxRoles();
+        return $this->doc;
     }
 
     /**
@@ -55,6 +58,25 @@ class Driver_Confluence_Filter_Aida implements Driver_Confluence_Filter
         $this->fixImages();
 
         return $this->doc;
+    }
+
+    public function convertSphinxRoles()
+    {
+        $this->doc = preg_replace_callback(
+            '#:(doc|ref):`([^`]+)`#',
+            function ($parts) {
+                $link = $parts[2];
+                if (strpos($link, '<') !== false) {
+                    list($title, $link) = explode('<', $link);
+                    $linkParts = explode('/', trim($link, ' >'));
+                    $link      = end($linkParts);
+                    $title     = trim($title);
+                    return '`' . $title . ' <' . $link . '>`_';
+                }
+                return '`' . $link . ' <' . $link . '>`_';
+            },
+            $this->doc
+        );
     }
 
     public function fixImages()

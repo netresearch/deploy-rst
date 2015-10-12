@@ -133,8 +133,38 @@ CFL
         );
     }
 
+
+    public function testPreFilterSphinxRoles()
+    {
+        $this->assertEquals(
+            <<<RST
+ref role: `Foo`_ (Events)
+RST
+            ,
+            $this->filter->preFilter(
+                <<<RST
+ref role: :ref:`Foo` (Events)
+RST
+            )
+        );
+    }
+
+    public function testPreFilterSphinxRolesTitle()
+    {
+        $this->assertEquals(
+            <<<RST
+ref role with title: (`Link title <linkpage>`_)
+See `Features/Login <login>`_.
+RST
+            ,
+            $this->filter->preFilter(
+                <<<RST
+ref role with title: (:ref:`Link title <linkpage>`)
+See :doc:`Features/Login <../features/login>`.
+RST
+            )
+        );
+    }
+
 }
-
-
-
 ?>
