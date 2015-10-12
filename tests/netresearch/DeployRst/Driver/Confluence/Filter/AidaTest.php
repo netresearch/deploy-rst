@@ -53,25 +53,6 @@ RST
         );
     }
 
-    public function testAddNumberedHeadings()
-    {
-        $this->filter->doc = <<<CFL
-Foo
-
-CFL;
-        $this->filter->addNumberedHeadings();
-        $this->assertEquals(
-            <<<CFL
-{numberedheadings}
-Foo
-{numberedheadings}
-
-CFL
-            ,
-            $this->filter->doc
-        );
-    }
-
     public function testFixImages()
     {
         $this->filter->doc = <<<CFL
