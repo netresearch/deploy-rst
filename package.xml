@@ -21,12 +21,12 @@
   <active>yes</active>
  </lead>
 
- <date>2015-09-15</date>
+ <date>2015-10-12</date>
  <time>00:00:00</time>
 
  <version>
-  <release>0.6.0</release>
-  <api>0.6.0</api>
+  <release>0.7.0</release>
+  <api>0.7.0</api>
  </version>
 
  <stability>
@@ -37,7 +37,7 @@
  <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
 
  <notes>
-NRFE-398: Automatically mark up excerpt in confluence document
+   AGP-2438: Convert :ref: and :doc: sphinx roles to links
  </notes>
 
  <contents>
@@ -127,6 +127,22 @@ NRFE-398: Automatically mark up excerpt in confluence document
  </phprelease>
 
  <changelog>
+
+  <release>
+   <version>
+    <release>0.7.0</release>
+    <api>0.7.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2015-10-12</date>
+   <license uri="http://www.gnu.org/licenses/agpl.html">AGPL</license>
+   <notes>
+     AGP-2438: Convert :ref: and :doc: sphinx roles to links
+   </notes>
+  </release>
 
   <release>
    <version>
