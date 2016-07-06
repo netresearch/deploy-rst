@@ -21,8 +21,7 @@
     },
     "require": {
         "php": "^5.3",
-        "pear/Console_CommandLine": "^1.1",
-        "pear/System_Folders": "^1.0"
+        "pear/Console_CommandLine": "^1.1"
     },
     "config": {
         "platform": {
