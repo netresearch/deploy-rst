@@ -1,0 +1,37 @@
+{
+    "name": "netresearch/deploy-rst",
+    "description": "Deploys a README.rst file into a wiki, e.g. Confluence",
+    "type": "library",
+    "keywords": [
+        "rst",
+        "reStructuredText",
+        "wiki"
+    ],
+    "homepage": "https://netreserach.de/",
+    "license": "AGPL 3",
+    "authors": [
+        {
+            "name": "Christian Weiske",
+            "email": "christian.weiske@netresearch.de",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://git.netresearch.de/php/phing-typo3-extdataextract"
+    },
+    "require": {
+        "php": "^5.3",
+        "pear/Console_CommandLine": "^1.1",
+        "pear/System_Folders": "^1.0"
+    },
+    "config": {
+        "platform": {
+            "php": "5.3"
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
