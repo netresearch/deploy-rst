@@ -40,6 +40,9 @@
             "php": "5.3"
         }
     },
+    "bin": [
+        "bin/deploy-rst"
+    ],
     "autoload": {
         "classmap": [
             "src/"
