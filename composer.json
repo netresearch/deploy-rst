@@ -19,9 +19,21 @@
     "support": {
         "issues": "https://git.netresearch.de/php/phing-typo3-extdataextract"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/netresearch/System_Folders"
+        },
+        {
+            "type": "vcs",
+            "url":  "https://github.com/pear/Config"
+        }
+    ],
     "require": {
         "php": "^5.3",
-        "pear/Console_CommandLine": "^1.1"
+        "pear/console_commandline": "^1.1",
+        "pear/config": "*",
+        "pear/system_folders": "*"
     },
     "config": {
         "platform": {
@@ -32,5 +44,7 @@
         "classmap": [
             "src/"
         ]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
