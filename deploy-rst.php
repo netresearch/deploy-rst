@@ -13,6 +13,10 @@ declare(encoding='utf-8');
  * @link     https://github.com/netresearch/deploy-rst
  */
 
+if (file_exists(__DIR__ . '/../../autoload.php')) {
+    require __DIR__ . '/../../autoload.php';
+}
+
 spl_autoload_register(
     function($class)
     {
