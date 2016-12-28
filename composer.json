@@ -33,7 +33,7 @@
         "php": ">=5.3 <=7.0",
         "pear/console_commandline": "^1.1",
         "pear/config": "*",
-        "pear/system_folders": "*"
+        "pear/system_folders": "dev-master"
     },
     "config": {
         "platform": {
