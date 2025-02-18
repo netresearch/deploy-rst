@@ -30,7 +30,7 @@
         }
     ],
     "require": {
-        "php": "5.3 - 7.0",
+        "php": "8.4",
         "pear/console_commandline": "^1.1",
         "pear/config": "*",
         "pear/system_folders": "dev-master"
