@@ -1,0 +1,595 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "14d30843806c0da94aa1ac8b9df06403",
+    "packages": [
+        {
+            "name": "netresearch/system_folders",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/netresearch/System_Folders.git",
+                "reference": "010c4d5adfe7ce3fd4cfcfc6bb62c9c0a453ae1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/netresearch/System_Folders/zipball/010c4d5adfe7ce3fd4cfcfc6bb62c9c0a453ae1b",
+                "reference": "010c4d5adfe7ce3fd4cfcfc6bb62c9c0a453ae1b",
+                "shasum": ""
+            },
+            "require": {
+                "pear/config": "*",
+                "pear/pear": "*",
+                "pear/pear_exception": "*"
+            },
+            "replace": {
+                "pear/system_folders": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "System": "./"
+                }
+            },
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "LGPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "email": "cweiske@php.net",
+                    "name": "Christian Weiske",
+                    "role": "Lead"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/System_Folders",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=System_Folders",
+                "source": "https://github.com/pear/System_Folders"
+            },
+            "time": "2020-01-02T13:31:00+00:00"
+        },
+        {
+            "name": "pear/archive_tar",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Archive_Tar.git",
+                "reference": "dc3285537f1832da8ddbbe45f5a007248b6cc00e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Archive_Tar/zipball/dc3285537f1832da8ddbbe45f5a007248b6cc00e",
+                "reference": "dc3285537f1832da8ddbbe45f5a007248b6cc00e",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear-core-minimal": "^1.10.0alpha2",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "ext-bz2": "Bz2 compression support.",
+                "ext-xz": "Lzma2 compression support.",
+                "ext-zlib": "Gzip compression support."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Archive_Tar": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Blavet",
+                    "email": "vincent@phpconcept.net"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "greg@chiaraquartet.net"
+                },
+                {
+                    "name": "Michiel Rook",
+                    "email": "mrook@php.net"
+                }
+            ],
+            "description": "Tar file management class with compression support (gzip, bzip2, lzma2)",
+            "homepage": "https://github.com/pear/Archive_Tar",
+            "keywords": [
+                "archive",
+                "tar"
+            ],
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Archive_Tar",
+                "source": "https://github.com/pear/Archive_Tar"
+            },
+            "time": "2025-07-19T14:49:16+00:00"
+        },
+        {
+            "name": "pear/config",
+            "version": "dev-trunk",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Config.git",
+                "reference": "4fa3b7cf9e0b5a3e8d706f4f6803774419bddfc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Config/zipball/4fa3b7cf9e0b5a3e8d706f4f6803774419bddfc0",
+                "reference": "4fa3b7cf9e0b5a3e8d706f4f6803774419bddfc0",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear_exception": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "pear/xml_parser": "Install optionally via your project's composer.json"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Config": "./"
+                }
+            },
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "PHP License"
+            ],
+            "authors": [
+                {
+                    "email": "bmansion@mamasam.com",
+                    "name": "Bertrand Mansion",
+                    "role": "Lead"
+                },
+                {
+                    "email": "ryansking@php.net",
+                    "name": "Ryan King",
+                    "role": "Lead"
+                },
+                {
+                    "email": "aashley@php.net",
+                    "name": "Adam Ashley",
+                    "role": "Lead"
+                },
+                {
+                    "email": "aharvey@php.net",
+                    "name": "Adam Harvey",
+                    "role": "Lead"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/Config",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Config",
+                "source": "https://github.com/pear/Config"
+            },
+            "abandoned": true,
+            "time": "2020-02-24T04:34:51+00:00"
+        },
+        {
+            "name": "pear/console_commandline",
+            "version": "v1.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Console_CommandLine.git",
+                "reference": "611c5bff2e47ec5a184748cb5fedc2869098ff28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Console_CommandLine/zipball/611c5bff2e47ec5a184748cb5fedc2869098ff28",
+                "reference": "611c5bff2e47ec5a184748cb5fedc2869098ff28",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-xml": "*",
+                "pear/pear_exception": "^1.0.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Console": "./"
+                },
+                "exclude-from-classmap": [
+                    "tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                ""
+            ],
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com"
+                },
+                {
+                    "name": "David Jean Louis",
+                    "email": "izimobil@gmail.com"
+                }
+            ],
+            "description": "A full featured command line options and arguments parser.",
+            "homepage": "https://github.com/pear/Console_CommandLine",
+            "keywords": [
+                "console"
+            ],
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Console_CommandLine",
+                "source": "https://github.com/pear/Console_CommandLine"
+            },
+            "abandoned": true,
+            "time": "2023-04-02T18:49:53+00:00"
+        },
+        {
+            "name": "pear/console_getopt",
+            "version": "v1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Console_Getopt.git",
+                "reference": "a41f8d3e668987609178c7c4a9fe48fecac53fa0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Console_Getopt/zipball/a41f8d3e668987609178c7c4a9fe48fecac53fa0",
+                "reference": "a41f8d3e668987609178c7c4a9fe48fecac53fa0",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Console": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Andrei Zmievski",
+                    "email": "andrei@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Stig Bakken",
+                    "email": "stig@php.net",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net",
+                    "role": "Helper"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/Console_Getopt",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Console_Getopt",
+                "source": "https://github.com/pear/Console_Getopt"
+            },
+            "time": "2019-11-20T18:27:48+00:00"
+        },
+        {
+            "name": "pear/pear",
+            "version": "v1.10.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/pear-core.git",
+                "reference": "9d3ac5eb137633e015d6c0d4e6deeca830f1ccc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/pear-core/zipball/9d3ac5eb137633e015d6c0d4e6deeca830f1ccc2",
+                "reference": "9d3ac5eb137633e015d6c0d4e6deeca830f1ccc2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "ext-xml": "*",
+                "pear/archive_tar": "*",
+                "pear/console_getopt": "*",
+                "pear/structures_graph": "*",
+                "pear/xml_util": "*",
+                "php": ">=5.4"
+            },
+            "replace": {
+                "pear/pear-core-minimal": "*",
+                "pear/pear-exception": "*"
+            },
+            "suggest": {
+                "pear/pear_frontend_gtk": "For GTK support",
+                "pear/pear_frontend_web": "For Web support"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./"
+                ],
+                "exclude-from-classmap": [
+                    "/tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Pierre-Alain Joye",
+                    "email": "pierre@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Stig Bakken",
+                    "email": "stig@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Tomas V.V.Cox",
+                    "email": "cox@idecnet.com",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Helgi Thormar",
+                    "email": "dufuz@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Tias Guns",
+                    "email": "tias@php.net",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tim Jackson",
+                    "email": "timj@php.net",
+                    "role": "Helper"
+                },
+                {
+                    "name": "Bertrand Gugger",
+                    "email": "toggg@php.net",
+                    "role": "Helper"
+                },
+                {
+                    "name": "Martin Jansen",
+                    "email": "mj@php.net",
+                    "role": "Helper"
+                }
+            ],
+            "description": "This is the definitive source of PEAR's core files.",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=PEAR",
+                "source": "https://github.com/pear/PEAR"
+            },
+            "time": "2024-11-24T22:10:16+00:00"
+        },
+        {
+            "name": "pear/pear_exception",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/PEAR_Exception.git",
+                "reference": "b14fbe2ddb0b9f94f5b24cf08783d599f776fff0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/PEAR_Exception/zipball/b14fbe2ddb0b9f94f5b24cf08783d599f776fff0",
+                "reference": "b14fbe2ddb0b9f94f5b24cf08783d599f776fff0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "<9"
+            },
+            "type": "class",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "PEAR/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "."
+            ],
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Helgi Thormar",
+                    "email": "dufuz@php.net"
+                },
+                {
+                    "name": "Greg Beaver",
+                    "email": "cellog@php.net"
+                }
+            ],
+            "description": "The PEAR Exception base class.",
+            "homepage": "https://github.com/pear/PEAR_Exception",
+            "keywords": [
+                "exception"
+            ],
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=PEAR_Exception",
+                "source": "https://github.com/pear/PEAR_Exception"
+            },
+            "time": "2021-03-21T15:43:46+00:00"
+        },
+        {
+            "name": "pear/structures_graph",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/Structures_Graph.git",
+                "reference": "66368ac2fdb88f00b58e1cca1ead1b20f6d3b250"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/Structures_Graph/zipball/66368ac2fdb88f00b58e1cca1ead1b20f6d3b250",
+                "reference": "66368ac2fdb88f00b58e1cca1ead1b20f6d3b250",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear-core-minimal": "^1.10.1",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Structures": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sérgio Carvalho",
+                    "email": "sergiosgc@gmail.com",
+                    "role": "Lead"
+                }
+            ],
+            "description": "More info available on: http://pear.php.net/package/Structures_Graph",
+            "homepage": "http://pear.php.net/package/Structures_Graph",
+            "support": {
+                "source": "https://github.com/pear/Structures_Graph"
+            },
+            "abandoned": true,
+            "time": "2024-06-02T15:12:16+00:00"
+        },
+        {
+            "name": "pear/xml_util",
+            "version": "v1.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pear/XML_Util.git",
+                "reference": "90052e3e7c099ffce3bc83ec4210f88a40b8419a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pear/XML_Util/zipball/90052e3e7c099ffce3bc83ec4210f88a40b8419a",
+                "reference": "90052e3e7c099ffce3bc83ec4210f88a40b8419a",
+                "shasum": ""
+            },
+            "require": {
+                "pear/pear-core-minimal": "^1.10.1",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "<=7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "XML_Util": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "./"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Chuck Burgess",
+                    "email": "ashnazg@php.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Stephan Schmidt",
+                    "email": "schst@php-tools.net",
+                    "role": "Lead"
+                },
+                {
+                    "name": "Davey Shafik",
+                    "email": "davey@php.net",
+                    "role": "Helper"
+                }
+            ],
+            "description": "Methods to work with XML documents",
+            "homepage": "http://pear.php.net/package/XML_Util",
+            "support": {
+                "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=XML_Util",
+                "source": "https://github.com/pear/XML_Util"
+            },
+            "abandoned": true,
+            "time": "2020-04-19T15:08:27+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "netresearch/system_folders": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.5"
+    },
+    "platform-dev": {},
+    "platform-overrides": {
+        "php": "8.5"
+    },
+    "plugin-api-version": "2.9.0"
+}
