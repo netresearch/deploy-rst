@@ -278,7 +278,8 @@ class Driver_Confluence extends Driver
         );
         list($lastline, $retval) = Exec::run($cmd);
 
-        unlink($tmpfile);
+        // $tmpfile is the tempnam() result from above, no input reaches it
+        unlink($tmpfile); // nosemgrep: php.lang.security.unlink-use.unlink-use
         if ($retval !== 0) {
             throw new Exception(
                 'Error storing new document in confluence' . "\n" . $lastline, 30
