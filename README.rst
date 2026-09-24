@@ -4,6 +4,14 @@ deploy-rst
 
 Deploys a ``README.rst`` file into a wiki, e.g. Confluence
 
+----
+
+**This project is no longer maintained, and the repository is archived.**
+It calls the SOAP-based Confluence Command Line Interface, which does not
+work with Confluence Cloud. The Composer package is marked as abandoned.
+
+----
+
 .. meta::
    :deploy-target: confluence
    :confluence-host: http://confluence.example.org
